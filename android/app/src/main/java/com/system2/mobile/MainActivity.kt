@@ -72,7 +72,9 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun runUnameA() {
-        val (cmd, args) = com.system2.mobile.linux.UbuntuManager.unameCommand()
+        val cmdArgs = com.system2.mobile.linux.UbuntuManager.unameCommand()
+        val cmd = cmdArgs.first
+        val args = cmdArgs.second
         when (val v = CommandSecurityManager.validate(cmd, args)) {
             is S2Result.Err -> {
                 lastStderr = "Bloqueado pela seguranca: ${v.reason}"
