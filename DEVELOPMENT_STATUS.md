@@ -1,11 +1,13 @@
 # SYSTEM2 MOBILE — DEVELOPMENT_STATUS
 
 ## Etapa 1 — Auditoria (CONCLUIDA)
+- Build no Actions: VERDE (run 42506041614, artifacts SYSTEM2-MOBILE-debug 16.5MB).
+- Corrigido: packages via setup-android, build.gradle em android/app, package MainActivity, imports grid/clickable, StatFs API18, removido StorageStatsManager (assinatura incompativel SDK34 -> campo null/indisponivel).
 - Ambiente: Android 16 aarch64, Termux, Java 21, git, gh (Wasaski), proot-distro disponivel.
 - Sem Android SDK/Gradle local -> build SOMENTE no GitHub Actions (decisao confirmada).
 - Arquitetura definida: Kotlin 2.0.20 + Compose BOM 2024.10.00 + AGP 8.5.2, minSdk 26, target 34.
 
-## Etapa 2 — APK Base (CONCLUIDA em codigo)
+## Etapa 2 — APK Base (CONCLUIDA + COMPILADA NO ACTIONS)
 - Projeto Android criado, Compose + Material3, identidade visual aplicada.
 - Navegacao Desktop/Launcher/Terminal/Monitor/Settings/Linux Desktop.
 - CI: .github/workflows/android-build.yml (JDK17 + SDK34 + assembleDebug + artifacts + release por tag).
