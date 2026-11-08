@@ -22,11 +22,8 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Accept licenses
-        run: |
-          yes | sdkmanager --licenses || true
-          sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+        with:
+          packages: "platforms;android-34 build-tools;34.0.0 platform-tools"
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -62,11 +59,8 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Accept licenses
-        run: |
-          yes | sdkmanager --licenses || true
-          sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+        with:
+          packages: "platforms;android-34 build-tools;34.0.0 platform-tools"
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
