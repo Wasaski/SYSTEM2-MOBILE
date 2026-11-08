@@ -4,7 +4,6 @@ import android.app.usage.StorageStatsManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import android.os.Process
 import com.system2.mobile.core.AppLogger
 
 enum class AppInstallState {
@@ -45,7 +44,7 @@ object AppCenter {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 try {
                     val ssm = context.getSystemService(Context.STORAGE_STATS_SERVICE) as StorageStatsManager
-                    val stats = ssm.queryStatsForPackage(packageName, Process.myUserHandle())
+                    val stats = ssm.queryStatsForUid(context.applicationInfo.uid)
                     storage = stats.appBytes
                     cache = stats.cacheBytes
                 } catch (_: Exception) { /* indisponivel -> null */ }
