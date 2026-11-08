@@ -1,12 +1,10 @@
 package com.system2.mobile.linux
 
 import com.system2.mobile.core.AppLogger
-import com.system2.mobile.core.S2Result
 
 /**
  * SYSTEM2 LINUX — gerencia o ambiente Ubuntu 24.04 ARM64 via Termux.
- * O rootfs NAO vai no APK; a instalacao e progressiva via proot-distro,
- * executada no Termux (scripts em linux/ubuntu/*.sh).
+ * O rootfs NAO vai no APK; a instalacao e progressiva via proot-distro.
  */
 object UbuntuManager {
 
@@ -23,7 +21,6 @@ object UbuntuManager {
         data class Error(val message: String) : UbuntuState
     }
 
-    /** Comandos allowlisted para checagem de instalacao. */
     fun installCheckCommand(): Pair<String, List<String>> =
         "proot-distro" to listOf("list")
 

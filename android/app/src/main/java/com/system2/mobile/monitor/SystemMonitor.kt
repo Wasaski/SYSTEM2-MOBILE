@@ -2,7 +2,6 @@ package com.system2.mobile.monitor
 
 import android.app.ActivityManager
 import android.content.Context
-import android.os.Build
 import android.os.Environment
 import android.os.StatFs
 import com.system2.mobile.core.AppLogger
@@ -35,9 +34,8 @@ object SystemMonitor {
 
         val path = Environment.getDataDirectory()
         val stat = StatFs(path.path)
-        val blockSize = if (Build.VERSION.SDK_INT >= 18) stat.blockSizeLong else stat.blockSize.toLong()
-        val totalBytes = if (Build.VERSION.SDK_INT >= 18) stat.totalBytes else blockSize * stat.totalBlocks
-        val freeBytes = if (Build.VERSION.SDK_INT >= 18) stat.freeBytes else blockSize * stat.freeBlocks
+        val totalBytes = stat.totalBytes
+        val freeBytes = stat.freeBytes
 
         val uptimeMin = (android.os.SystemClock.elapsedRealtime()) / 60_000
 
