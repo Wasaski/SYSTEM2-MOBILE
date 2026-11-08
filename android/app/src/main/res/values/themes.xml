@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="system2_background">#090909</color>
+    <color name="system2_background_secondary">#111111</color>
+    <color name="system2_surface">#191919</color>
+    <color name="system2_primary">#D71920</color>
+    <color name="system2_secondary">#8F1016</color>
+    <color name="system2_text">#F2F2F2</color>
+    <color name="system2_text_secondary">#858585</color>
+    <color name="system2_border">#292929</color>
+
+    <style name="Theme.System2" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/system2_background</item>
+        <item name="android:statusBarColor">@color/system2_background</item>
+        <item name="android:navigationBarColor">@color/system2_background</item>
+    </style>
+</resources>

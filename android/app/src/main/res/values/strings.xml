@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SYSTEM2 MOBILE</string>
+    <string name="termux_not_installed">Termux nao instalado. Toque para abrir a pagina de instalacao (F-Droid).</string>
+    <string name="run_command_permission">Conceda a permissao RUN_COMMAND ao SYSTEM2 nas configuracoes do Termux para executar comandos no Ubuntu.</string>
+</resources>
