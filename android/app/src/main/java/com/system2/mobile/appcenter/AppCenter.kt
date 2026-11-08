@@ -1,6 +1,5 @@
 package com.system2.mobile.appcenter
 
-import android.app.usage.StorageStatsManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -41,14 +40,8 @@ object AppCenter {
             val perms = (pi.requestedPermissions ?: emptyArray()).toList()
             var storage: Long? = null
             var cache: Long? = null
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                try {
-                    val ssm = context.getSystemService(Context.STORAGE_STATS_SERVICE) as StorageStatsManager
-                    val stats = ssm.queryStatsForUid(context.applicationInfo.uid)
-                    storage = stats.appBytes
-                    cache = stats.cacheBytes
-                } catch (_: Exception) { /* indisponivel -> null */ }
-            }
+            // StorageStatsManager omite storage/cache aqui (assinatura difere
+            // entre niveis de API); ficando null => exibido como indisponivel.
             AppLogger.i("inspected $packageName v=$ver")
             AppInfo(packageName, label, ver, code, AppInstallState.INSTALLED, storage, cache, perms)
         } catch (e: PackageManager.NameNotFoundException) {
